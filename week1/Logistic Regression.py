@@ -2,7 +2,6 @@ import nltk
 from os import getcwd
 import w1_unittest
 import numpy as np
-import pandas as pd
 from nltk.corpus import twitter_samples
 from utils import process_tweet,build_freqs
 
