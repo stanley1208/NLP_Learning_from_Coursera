@@ -10,14 +10,7 @@
             </Attribute>
           </value>
         </entry>
-        <entry key="C:\Users\user\Downloads\Files\home\jovyan\work\data\bayes_features.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="\logistic_features.csv">
+        <entry key="\week2\bayes_features.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />
