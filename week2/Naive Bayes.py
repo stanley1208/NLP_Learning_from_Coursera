@@ -152,3 +152,193 @@ print(len(loglikelihood))
 
 # Test your function
 # w2_unittest.test_train_naive_bayes(train_naive_bayes, freqs, train_x, train_y)
+
+# UNQ_C4 GRADED FUNCTION: naive_bayes_predict
+
+def naive_bayes_predict(tweet, logprior, loglikelihood):
+    '''
+    Input:
+        tweet: a string
+        logprior: a number
+        loglikelihood: a dictionary of words mapping to numbers
+    Output:
+        p: the sum of all the logliklihoods of each word in the tweet (if found in the dictionary) + logprior (a number)
+
+    '''
+    ### START CODE HERE ###
+    # process the tweet to get a list of words
+    word_l = process_tweet(tweet)
+
+    # initialize probability to zero
+    p = 0
+
+    # add the logprior
+    p += logprior
+
+    for word in word_l:
+
+        # check if the word exists in the loglikelihood dictionary
+        if word in loglikelihood:
+            # add the log likelihood of that word to the probability
+            p += loglikelihood[word]
+
+    ### END CODE HERE ###
+
+    return p
+
+# UNQ_C5 (UNIQUE CELL IDENTIFIER, DO NOT EDIT)
+# Experiment with your own tweet.
+my_tweet = 'She smiled.'
+p = naive_bayes_predict(my_tweet, logprior, loglikelihood)
+print('The expected output is', p)
+
+# Test your function
+w2_unittest.test_naive_bayes_predict(naive_bayes_predict)
+
+# UNQ_C6 GRADED FUNCTION: test_naive_bayes
+
+# def test_naive_bayes(test_x, test_y, logprior, loglikelihood, naive_bayes_predict=naive_bayes_predict):
+#     """
+#     Input:
+#         test_x: A list of tweets
+#         test_y: the corresponding labels for the list of tweets
+#         logprior: the logprior
+#         loglikelihood: a dictionary with the loglikelihoods for each word
+#     Output:
+#         accuracy: (# of tweets classified correctly)/(total # of tweets)
+#     """
+#     accuracy = 0  # return this properly
+#
+#     ### START CODE HERE ###
+#     y_hats = []
+#     for tweet in test_x:
+#         # if the prediction is > 0
+#         if naive_bayes_predict(tweet, logprior, loglikelihood) > 0:
+#             # the predicted class is 1
+#             y_hat_i = 1
+#         else:
+#             # otherwise the predicted class is 0
+#             y_hat_i = 0
+#
+#         # append the predicted class to the list y_hats
+#         y_hats.append(y_hat_i)
+#
+#     # error is the average of the absolute values of the differences between y_hats and test_y
+#     error = np.average(np.absolute(y_hats-test_y))
+#
+#     # Accuracy is 1 minus the error
+#     accuracy = 1-error
+#
+#     ### END CODE HERE ###
+#
+#     return accuracy
+#
+# print("Naive Bayes accuracy = %0.4f" ,(test_naive_bayes(test_x, test_y, logprior, loglikelihood)))
+
+
+# UNQ_C7 (UNIQUE CELL IDENTIFIER, DO NOT EDIT)
+# Run this cell to test your function
+for tweet in ['I am happy', 'I am bad', 'this movie should have been great.', 'great', 'great great', 'great great great', 'great great great great']:
+    p = naive_bayes_predict(tweet, logprior, loglikelihood)
+    print(f'{tweet} -> {p:.2f}')
+
+# Feel free to check the sentiment of your own tweet below
+my_tweet = 'you are excellent .'
+print(naive_bayes_predict(my_tweet, logprior, loglikelihood))
+
+# Test your function
+# w2_unittest.unittest_test_naive_bayes(test_naive_bayes, test_x, test_y)
+
+# UNQ_C8 GRADED FUNCTION: get_ratio
+
+def get_ratio(freqs, word):
+    '''
+    Input:
+        freqs: dictionary containing the words
+
+    Output: a dictionary with keys 'positive', 'negative', and 'ratio'.
+        Example: {'positive': 10, 'negative': 20, 'ratio': 0.5}
+    '''
+    pos_neg_ratio = {'positive': 0, 'negative': 0, 'ratio': 0.0}
+    ### START CODE HERE ###
+    # use lookup() to find positive counts for the word (denoted by the integer 1)
+    pos_neg_ratio['positive'] = lookup(freqs,word,1)
+
+    # use lookup() to find negative counts for the word (denoted by integer 0)
+    pos_neg_ratio['negative'] = lookup(freqs,word,0)
+
+    # calculate the ratio of positive to negative counts for the word
+    pos_neg_ratio['ratio'] = (pos_neg_ratio['positive']+1) / (pos_neg_ratio['negative']+1)
+    ### END CODE HERE ###
+    return pos_neg_ratio
+
+print(get_ratio(freqs, 'happi'))
+
+# Test your function
+w2_unittest.test_get_ratio(get_ratio, freqs)
+
+
+# UNQ_C9 GRADED FUNCTION: get_words_by_threshold
+
+def get_words_by_threshold(freqs, label, threshold, get_ratio=get_ratio):
+    '''
+    Input:
+        freqs: dictionary of words
+        label: 1 for positive, 0 for negative
+        threshold: ratio that will be used as the cutoff for including a word in the returned dictionary
+    Output:
+        word_list: dictionary containing the word and information on its positive count, negative count, and ratio of positive to negative counts.
+        example of a key value pair:
+        {'happi':
+            {'positive': 10, 'negative': 20, 'ratio': 0.5}
+        }
+    '''
+    word_list = {}
+
+    ### START CODE HERE ###
+    for key in freqs.keys():
+        word, _ = key
+
+        # get the positive/negative ratio for a word
+        pos_neg_ratio = get_ratio(freqs,word)
+
+        # if the label is 1 and the ratio is greater than or equal to the threshold...
+        if label == 1 and pos_neg_ratio['ratio'] >= threshold:
+
+            # Add the pos_neg_ratio to the dictionary
+            word_list[word] = pos_neg_ratio
+
+        # If the label is 0 and the pos_neg_ratio is less than or equal to the threshold...
+        elif label == 0 and pos_neg_ratio['ratio'] <= threshold:
+
+            # Add the pos_neg_ratio to the dictionary
+            word_list[word] = pos_neg_ratio
+
+        # otherwise, do not include this word in the list (do nothing)
+
+    ### END CODE HERE ###
+    return word_list
+
+# Test your function: find negative words at or below a threshold
+print(get_words_by_threshold(freqs, label=0, threshold=0.05))
+
+# Test your function; find positive words at or above a threshold
+print(get_words_by_threshold(freqs, label=1, threshold=10))
+
+# Test your function
+w2_unittest.test_get_words_by_threshold(get_words_by_threshold, freqs)
+
+# Some error analysis done for you
+print('Truth Predicted Tweet')
+for x, y in zip(test_x, test_y):
+    y_hat = naive_bayes_predict(x, logprior, loglikelihood)
+    if y != (np.sign(y_hat) > 0):
+        print('%d\t%0.2f\t%s' % (y, np.sign(y_hat) > 0, ' '.join(
+            process_tweet(x)).encode('ascii', 'ignore')))
+
+
+# Test with your own tweet - feel free to modify `my_tweet`
+my_tweet=str(input())
+
+p = naive_bayes_predict(my_tweet, logprior, loglikelihood)
+print(p)
