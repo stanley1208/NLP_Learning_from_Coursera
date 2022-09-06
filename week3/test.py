@@ -1,5 +1,6 @@
 import nltk
 from gensim.models import KeyedVectors
+import pickle
 
 
 embeddings = KeyedVectors.load_word2vec_format('./GoogleNews-vectors-negative300.bin', binary = True)

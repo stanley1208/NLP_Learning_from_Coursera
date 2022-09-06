@@ -5,13 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0ff9acdd-4749-4e0b-9a78-82f4a975b4e3" name="Changes" comment="update files">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week3/Assignment.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week3/data/word_embeddings_subset.p" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week3/test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week3/utils.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/week3/w3_unittest.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/week3/Assignment.py" beforeDir="false" afterPath="$PROJECT_DIR$/week3/Assignment.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/week3/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/week3/test.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -254,7 +250,14 @@
       <option name="project" value="LOCAL" />
       <updated>1661300343090</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="update files">
+      <created>1661832944929</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1661832944929</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
