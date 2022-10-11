@@ -90,3 +90,73 @@ def get_matrices(en_fr, french_vecs, english_vecs):
 
 # getting the training set:
 X_train, Y_train = get_matrices(en_fr_train, fr_embeddings_subset, en_embeddings_subset)
+
+
+# UNQ_C3 (UNIQUE CELL IDENTIFIER, DO NOT EDIT)
+def compute_loss(X, Y, R):
+    '''
+    Inputs:
+        X: a matrix of dimension (m,n) where the columns are the English embeddings.
+        Y: a matrix of dimension (m,n) where the columns correspong to the French embeddings.
+        R: a matrix of dimension (n,n) - transformation matrix from English to French vector space embeddings.
+    Outputs:
+        L: a matrix of dimension (m,n) - the value of the loss function for given X, Y and R.
+    '''
+    ### START CODE HERE ###
+    # m is the number of rows in X
+    m = X.shape[0]
+
+    # diff is XR - Y
+    diff = np.dot(X,R)-Y
+
+    # diff_squared is the element-wise square of the difference
+    diff_squared = np.square(diff)
+
+    # sum_diff_squared is the sum of the squared elements
+    sum_diff_squared = np.sum(diff_squared)
+
+    # loss i is the sum_diff_squard divided by the number of examples (m)
+    loss = sum_diff_squared/m
+    ### END CODE HERE ###
+    return loss
+
+# Testing your implementation.
+np.random.seed(123)
+m = 10
+n = 5
+X = np.random.rand(m, n)
+Y = np.random.rand(m, n) * .1
+R = np.random.rand(n, n)
+print(f"Expected loss for an experiment with random matrices: {compute_loss(X, Y, R):.4f}" )
+
+
+# UNQ_C4 (UNIQUE CELL IDENTIFIER, DO NOT EDIT)
+def compute_gradient(X, Y, R):
+    '''
+    Inputs:
+        X: a matrix of dimension (m,n) where the columns are the English embeddings.
+        Y: a matrix of dimension (m,n) where the columns correspong to the French embeddings.
+        R: a matrix of dimension (n,n) - transformation matrix from English to French vector space embeddings.
+    Outputs:
+        g: a scalar value - gradient of the loss function L for given X, Y and R.
+    '''
+    ### START CODE HERE ###
+    # m is the number of rows in X
+    m = X.shape[0]
+
+    # gradient is X^T(XR - Y) * 2/m
+    gradient = np.dot(X.T,np.dot(X,R)-Y)*2/m
+
+    ### END CODE HERE ###
+    return gradient
+
+
+# Testing your implementation.
+np.random.seed(123)
+m = 10
+n = 5
+X = np.random.rand(m, n)
+Y = np.random.rand(m, n) * .1
+R = np.random.rand(n, n)
+gradient = compute_gradient(X, Y, R)
+print(f"First row of the gradient matrix: {gradient[0]}")
