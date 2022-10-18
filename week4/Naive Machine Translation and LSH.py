@@ -207,3 +207,47 @@ R = align_embeddings(X, Y)
 # UNQ_C7 (UNIQUE CELL IDENTIFIER, DO NOT EDIT)
 # You do not have to input any code in this cell, but it is relevant to grading, so please do not change anything
 R_train = align_embeddings(X_train, Y_train, train_steps=400, learning_rate=0.8)
+
+
+# UNQ_C8 (UNIQUE CELL IDENTIFIER, DO NOT EDIT)
+def nearest_neighbor(v, candidates, k=1, cosine_similarity=cosine_similarity):
+    """
+    Input:
+      - v, the vector you are going find the nearest neighbor for
+      - candidates: a set of vectors where we will find the neighbors
+      - k: top k nearest neighbors to find
+    Output:
+      - k_idx: the indices of the top k closest vectors in sorted form
+    """
+    ### START CODE HERE ###
+    similarity_l = []
+
+    # for each candidate vector...
+    for row in candidates:
+        # get the cosine similarity
+        cos_similarity = cosine_similarity(v,row)
+
+        # append the similarity to the list
+        similarity_l.append(cos_similarity)
+
+    # sort the similarity list and get the indices of the sorted list
+    sorted_ids = np.argsort(similarity_l)
+
+    # Reverse the order of the sorted_ids array
+    sorted_ids = sorted_ids[::-1]
+
+    # get the indices of the k most similar candidate vectors
+    k_idx = sorted_ids[:k]
+    ### END CODE HERE ###
+    return k_idx
+
+# UNQ_C9 (UNIQUE CELL IDENTIFIER, DO NOT EDIT)
+# You do not have to input any code in this cell, but it is relevant to grading, so please do not change anything
+
+# Test your implementation:
+v = np.array([1, 0, 1])
+candidates = np.array([[1, 0, 5], [-2, 5, 3], [2, 0, 1], [6, -9, 5], [9, 9, 9]])
+print(candidates[nearest_neighbor(v, candidates, 3)])
+
+
+
