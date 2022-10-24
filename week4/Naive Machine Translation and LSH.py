@@ -250,4 +250,46 @@ candidates = np.array([[1, 0, 5], [-2, 5, 3], [2, 0, 1], [6, -9, 5], [9, 9, 9]])
 print(candidates[nearest_neighbor(v, candidates, 3)])
 
 
+# UNQ_C10 (UNIQUE CELL IDENTIFIER, DO NOT EDIT)
+def playing_vocabulary(X, Y, R, nearest_neighbor=nearest_neighbor):
+    '''
+    Input:
+        X: a matrix where the columns are the English embeddings.
+        Y: a matrix where the columns correspong to the French embeddings.
+        R: the transform matrix which translates word embeddings from
+        English to French word vector space.
+    Output:
+        accuracy: for the English to French capitals
+    '''
 
+    ### START CODE HERE ###
+    # The prediction is X times R
+    pred = np.dot(X,R)
+
+    # initialize the number correct to zero
+    num_correct = 0
+
+    # loop through each row in pred (each transformed embedding)
+    for i in range(len(pred)):
+        # get the index of the nearest neighbor of pred at row 'i'; also pass in the candidates in Y
+        pred_idx = nearest_neighbor(pred[i],Y)
+
+        # if the index of the nearest neighbor equals the row of i... \
+        if pred_idx == i:
+            # increment the number correct by 1.
+            num_correct += 1
+
+    # accuracy is the number correct divided by the number of rows in 'pred' (also number of rows in X)
+    accuracy = num_correct/len(pred)
+
+    ### END CODE HERE ###
+
+    return accuracy
+
+X_val, Y_val = get_matrices(en_fr_test, fr_embeddings_subset, en_embeddings_subset)
+
+# UNQ_C11 (UNIQUE CELL IDENTIFIER, DO NOT EDIT)
+# You do not have to input any code in this cell, but it is relevant to grading, so please do not change anything
+
+acc = playing_vocabulary(X_val, Y_val, R_train)  # this might take a minute or two
+print(f"accuracy on test set is {acc:.3f}")
