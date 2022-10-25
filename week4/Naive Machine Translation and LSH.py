@@ -369,7 +369,7 @@ def get_document_vecs(all_docs, en_embeddings, get_document_embedding=get_docume
     return document_vec_matrix, ind2Doc_dict
 
 
-document_vecs, ind2Tw.eet = get_document_vecs(all_tweets, en_embeddings_subset)
+document_vecs, ind2Tweet = get_document_vecs(all_tweets, en_embeddings_subset)
 
 # UNQ_C15 (UNIQUE CELL IDENTIFIER, DO NOT EDIT)
 # You do not have to input any code in this cell, but it is relevant to grading, so please do not change anything
