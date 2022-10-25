@@ -293,3 +293,86 @@ X_val, Y_val = get_matrices(en_fr_test, fr_embeddings_subset, en_embeddings_subs
 
 acc = playing_vocabulary(X_val, Y_val, R_train)  # this might take a minute or two
 print(f"accuracy on test set is {acc:.3f}")
+
+# get the positive and negative tweets
+all_positive_tweets=twitter_samples.strings('positive_tweets.json')
+all_negative_tweets=twitter_samples.strings('negative_tweets.json')
+all_tweets=all_positive_tweets+all_negative_tweets
+
+
+# UNQ_C12 (UNIQUE CELL IDENTIFIER, DO NOT EDIT)
+def get_document_embedding(tweet, en_embeddings, process_tweet=process_tweet):
+    '''
+    Input:
+        - tweet: a string
+        - en_embeddings: a dictionary of word embeddings
+    Output:
+        - doc_embedding: sum of all word embeddings in the tweet
+    '''
+    doc_embedding = np.zeros(300)
+
+    ### START CODE HERE ###
+    # process the document into a list of words (process the tweet)
+    processed_doc = process_tweet(tweet)
+    for word in processed_doc:
+        # add the word embedding to the running total for the document embedding
+        doc_embedding += en_embeddings.get(word,0)
+    ### END CODE HERE ###
+    return doc_embedding
+
+
+
+# UNQ_C13 (UNIQUE CELL IDENTIFIER, DO NOT EDIT)
+# You do not have to input any code in this cell, but it is relevant to grading, so please do not change anything
+
+# testing your function
+custom_tweet = "RT @Twitter @chapagain Hello There! Have a great day. :) #good #morning http://chapagain.com.np"
+tweet_embedding = get_document_embedding(custom_tweet, en_embeddings_subset)
+print(tweet_embedding[-5:])
+
+
+# UNQ_C14 (UNIQUE CELL IDENTIFIER, DO NOT EDIT)
+def get_document_vecs(all_docs, en_embeddings, get_document_embedding=get_document_embedding):
+    '''
+    Input:
+        - all_docs: list of strings - all tweets in our dataset.
+        - en_embeddings: dictionary with words as the keys and their embeddings as the values.
+    Output:
+        - document_vec_matrix: matrix of tweet embeddings.
+        - ind2Doc_dict: dictionary with indices of tweets in vecs as keys and their embeddings as the values.
+    '''
+
+    # the dictionary's key is an index (integer) that identifies a specific tweet
+    # the value is the document embedding for that document
+    ind2Doc_dict = {}
+
+    # this is list that will store the document vectors
+    document_vec_l = []
+
+    for i, doc in enumerate(all_docs):
+
+        ### START CODE HERE ###
+        # get the document embedding of the tweet
+        doc_embedding = get_document_embedding(doc,en_embeddings)
+
+        # save the document embedding into the ind2Tweet dictionary at index i
+        ind2Doc_dict[i] = doc_embedding
+
+        # append the document embedding to the list of document vectors
+        document_vec_l.append(doc_embedding)
+
+        ### END CODE HERE ###
+
+    # convert the list of document vectors into a 2D array (each row is a document vector)
+    document_vec_matrix = np.vstack(document_vec_l)
+
+    return document_vec_matrix, ind2Doc_dict
+
+
+document_vecs, ind2Tw.eet = get_document_vecs(all_tweets, en_embeddings_subset)
+
+# UNQ_C15 (UNIQUE CELL IDENTIFIER, DO NOT EDIT)
+# You do not have to input any code in this cell, but it is relevant to grading, so please do not change anything
+
+print(f"length of dictionary {len(ind2Tweet)}")
+print(f"shape of document_vecs {document_vecs.shape}")
