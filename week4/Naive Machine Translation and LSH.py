@@ -376,3 +376,25 @@ document_vecs, ind2Tweet = get_document_vecs(all_tweets, en_embeddings_subset)
 
 print(f"length of dictionary {len(ind2Tweet)}")
 print(f"shape of document_vecs {document_vecs.shape}")
+
+my_tweet="i am sad"
+process_tweet(my_tweet)
+tweet_embedding=get_document_embedding(my_tweet,en_embeddings_subset)
+
+# UNQ_C16 (UNIQUE CELL IDENTIFIER, DO NOT EDIT)
+# You do not have to input any code in this cell, but it is relevant to grading, so please do not change anything
+
+# this gives you a similar tweet as your input.
+# this implementation is vectorized...
+idx = np.argmax(cosine_similarity(document_vecs, tweet_embedding))
+print(all_tweets[idx])
+
+
+N_VECS=len(all_tweets)  # This many vectors.
+N_DIMS=len(ind2Tweet[1])    # Vector dimensionality.
+print(f"Number of vectors is {N_VECS} and each has {N_DIMS} dimensions.")
+
+# The number of planes. We use log2(256) to have ~16 vectors/bucket.
+N_PLANES = 10
+# Number of times to repeat the hashing to improve the search.
+N_UNIVERSES = 25
