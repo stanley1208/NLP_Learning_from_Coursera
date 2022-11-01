@@ -398,3 +398,63 @@ print(f"Number of vectors is {N_VECS} and each has {N_DIMS} dimensions.")
 N_PLANES = 10
 # Number of times to repeat the hashing to improve the search.
 N_UNIVERSES = 25
+
+
+np.random.seed(0)
+planes_l = [np.random.normal(size=(N_DIMS, N_PLANES))
+            for _ in range(N_UNIVERSES)]
+
+
+# UNQ_C17 (UNIQUE CELL IDENTIFIER, DO NOT EDIT)
+def hash_value_of_vector(v, planes):
+    """Create a hash for a vector; hash_id says which random hash to use.
+    Input:
+        - v:  vector of tweet. It's dimension is (1, N_DIMS)
+        - planes: matrix of dimension (N_DIMS, N_PLANES) - the set of planes that divide up the region
+    Output:
+        - res: a number which is used as a hash for your vector
+
+    """
+    ### START CODE HERE ###
+    # for the set of planes,
+    # calculate the dot product between the vector and the matrix containing the planes
+    # remember that planes has shape (300, 10)
+    # The dot product will have the shape (1,10)
+    dot_product = np.dot(v,planes)
+
+    # get the sign of the dot product (1,10) shaped vector
+    sign_of_dot_product = np.sign(dot_product)
+
+    # set h to be false (eqivalent to 0 when used in operations) if the sign is negative,
+    # and true (equivalent to 1) if the sign is positive (1,10) shaped vector
+    # if the sign is 0, i.e. the vector is in the plane, consider the sign to be positive
+    h = sign_of_dot_product==1
+
+    # remove extra un-used dimensions (convert this from a 2D to a 1D array)
+    h = np.squeeze(h)
+
+    # initialize the hash value to 0
+    hash_value = 0
+
+    n_planes = planes.shape[1]
+    for i in range(n_planes):
+        # increment the hash value by 2^i * h_i
+        hash_value += 2**i*h[i]
+
+    ### END CODE HERE ###
+
+    # cast hash_value as an integer
+    hash_value = int(hash_value)
+
+    return hash_value
+
+# UNQ_C18 (UNIQUE CELL IDENTIFIER, DO NOT EDIT)
+# You do not have to input any code in this cell, but it is relevant to grading, so please do not change anything
+
+np.random.seed(0)
+idx = 0
+planes = planes_l[idx]  # get one 'universe' of planes to test the function
+vec = np.random.rand(1, 300)
+print(f" The hash value for this vector,",
+      f"and the set of planes at index {idx},",
+      f"is {hash_value_of_vector(vec, planes)}")
