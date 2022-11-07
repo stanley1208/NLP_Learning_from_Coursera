@@ -458,3 +458,76 @@ vec = np.random.rand(1, 300)
 print(f" The hash value for this vector,",
       f"and the set of planes at index {idx},",
       f"is {hash_value_of_vector(vec, planes)}")
+
+
+# UNQ_C19 (UNIQUE CELL IDENTIFIER, DO NOT EDIT)
+# This is the code used to create a hash table: feel free to read over it
+def make_hash_table(vecs, planes, hash_value_of_vector=hash_value_of_vector):
+    """
+    Input:
+        - vecs: list of vectors to be hashed.
+        - planes: the matrix of planes in a single "universe", with shape (embedding dimensions, number of planes).
+    Output:
+        - hash_table: dictionary - keys are hashes, values are lists of vectors (hash buckets)
+        - id_table: dictionary - keys are hashes, values are list of vectors id's
+                            (it's used to know which tweet corresponds to the hashed vector)
+    """
+    ### START CODE HERE ###
+
+    # number of planes is the number of columns in the planes matrix
+    num_of_planes = planes.shape[1]
+
+    # number of buckets is 2^(number of planes)
+    num_buckets = 2**num_of_planes
+
+    # create the hash table as a dictionary.
+    # Keys are integers (0,1,2.. number of buckets)
+    # Values are empty lists
+    hash_table = {i:[] for i in range(num_buckets)}
+
+    # create the id table as a dictionary.
+    # Keys are integers (0,1,2... number of buckets)
+    # Values are empty lists
+    id_table = {i:[] for i in range(num_buckets)}
+
+    # for each vector in 'vecs'
+    for i, v in enumerate(vecs):
+        # calculate the hash value for the vector
+        h = hash_value_of_vector(v,planes)
+
+        # store the vector into hash_table at key h,0
+        # by appending the vector v to the list at key h
+        hash_table[h].append(v)
+
+        # store the vector's index 'i' (each document is given a unique integer 0,1,2...)
+        # the key is the h, and the 'i' is appended to the list at key h
+        id_table[h].append(i)
+
+    ### END CODE HERE ###
+
+    return hash_table, id_table
+
+# UNQ_C20 (UNIQUE CELL IDENTIFIER, DO NOT EDIT)
+# You do not have to input any code in this cell, but it is relevant to grading, so please do not change anything
+planes = planes_l[0]  # get one 'universe' of planes to test the function
+tmp_hash_table, tmp_id_table = make_hash_table(document_vecs, planes)
+
+print(f"The hash table at key 0 has {len(tmp_hash_table[0])} document vectors")
+print(f"The id table at key 0 has {len(tmp_id_table[0])}")
+print(f"The first 5 document indices stored at key 0 of are {tmp_id_table[0][0:5]}")
+
+# Creating the hashtables
+def create_hash_id_tables(n_universes):
+    hash_tables = []
+    id_tables = []
+    for universe_id in range(n_universes):  # there are 25 hashes
+        print('working on hash universe #:', universe_id)
+        planes = planes_l[universe_id]
+        hash_table, id_table = make_hash_table(document_vecs, planes)
+        hash_tables.append(hash_table)
+        id_tables.append(id_table)
+
+    return hash_tables, id_tables
+
+
+hash_tables, id_tables = create_hash_id_tables(N_UNIVERSES)
