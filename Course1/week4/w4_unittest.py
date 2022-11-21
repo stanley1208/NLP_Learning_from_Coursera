@@ -9,10 +9,10 @@ def test_get_matrices(target):
     successful_cases = 0
     failed_cases = []
 
-    en_fr_train = get_dict("./data/en-fr.train.txt")
-    en_fr_test = get_dict("./data/en-fr.test.txt")
-    en_embeddings_subset = pickle.load(open("./data/en_embeddings.p", "rb"))
-    fr_embeddings_subset = pickle.load(open("./data/fr_embeddings.p", "rb"))
+    en_fr_train = get_dict("data/en-fr.train.txt")
+    en_fr_test = get_dict("data/en-fr.test.txt")
+    en_embeddings_subset = pickle.load(open("data/en_embeddings.p", "rb"))
+    fr_embeddings_subset = pickle.load(open("data/fr_embeddings.p", "rb"))
 
     test_cases = [
         {
@@ -3143,7 +3143,7 @@ def test_get_document_embedding(target):
     successful_cases = 0
     failed_cases = []
 
-    en_embeddings_subset = pickle.load(open("./data/en_embeddings.p", "rb"))
+    en_embeddings_subset = pickle.load(open("data/en_embeddings.p", "rb"))
 
     test_cases = [
         {
@@ -4146,7 +4146,7 @@ def test_get_document_vecs(target):
     successful_cases = 0
     failed_cases = []
 
-    en_embeddings_subset = pickle.load(open("./data/en_embeddings.p", "rb"))
+    en_embeddings_subset = pickle.load(open("data/en_embeddings.p", "rb"))
     all_positive_tweets = twitter_samples.strings("positive_tweets.json")
     all_negative_tweets = twitter_samples.strings("negative_tweets.json")
     all_tweets = all_positive_tweets + all_negative_tweets

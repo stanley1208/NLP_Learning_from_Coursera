@@ -6,14 +6,14 @@ import w3_unittest
 from utils import get_vectors
 
 
-data=pd.read_csv('./data/capitals.txt',delimiter=' ')
+data=pd.read_csv('data/capitals.txt', delimiter=' ')
 data.columns=['city1','country1','city2','country2']
 
 # print first five elements in the DataFrame
 # print(data.head(5))
 
 
-word_embeddings=pickle.load(open("./data/word_embeddings_subset.p","rb"))
+word_embeddings=pickle.load(open("data/word_embeddings_subset.p", "rb"))
 print(len(word_embeddings))
 print("dimension:{}".format(word_embeddings['Spain'].shape[0]))
 

@@ -17,14 +17,14 @@ nltk.download('twitter_samples')
 filePath=f"{getcwd()}/tmp2/"
 nltk.data.path.append(filePath)
 
-en_embeddings_subset=pickle.load(open("./data/en_embeddings.p","rb"))
-fr_embeddings_subset=pickle.load(open("./data/fr_embeddings.p","rb"))
+en_embeddings_subset=pickle.load(open("data/en_embeddings.p", "rb"))
+fr_embeddings_subset=pickle.load(open("data/fr_embeddings.p", "rb"))
 
 
 # loading the english to french dictionaries
-en_fr_train=get_dict('./data/en-fr.train.txt')
+en_fr_train=get_dict('data/en-fr.train.txt')
 print('The length of the English to French training dictionary is',len(en_fr_train))
-en_fr_test=get_dict('./data/en-fr.test.txt')
+en_fr_test=get_dict('data/en-fr.test.txt')
 print('The length of the English to French test dictionary is',len(en_fr_test))
 
 

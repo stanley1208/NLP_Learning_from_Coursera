@@ -4,7 +4,7 @@ import pandas as pd # Dataframe library
 import matplotlib.pyplot as plt # Library for plots
 from utils import confidence_ellipse # Function to add confidence ellipses to charts
 
-data=pd.read_csv('./bayes_features.csv') # Load the data from the csv file
+data=pd.read_csv('bayes_features.csv') # Load the data from the csv file
 # print(data.head(5))
 
 # Plot the samples using columns 1 and 2 of the matrix

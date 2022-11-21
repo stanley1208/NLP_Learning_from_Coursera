@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt # Import matplotlib
 
 
 
-word_embeddings=pickle.load(open("./word_embeddings_subset.p","rb"))
+word_embeddings=pickle.load(open("word_embeddings_subset.p", "rb"))
 print(len(word_embeddings)) # there should be 243 words that will be used in this assignment
 
 countryVector=word_embeddings["country"]    # Get the vector representation for the word 'country'

@@ -272,7 +272,7 @@ def test_train_naive_bayes(target, freqs, train_x, train_y):
             "expected": {
                 "logprior": 0.0,
                 "loglikelihood": pickle.load(
-                    open("./support_files/loglikelihood_test.pkl", "rb")
+                    open("support_files/loglikelihood_test.pkl", "rb")
                 ),
             },
         },
@@ -286,7 +286,7 @@ def test_train_naive_bayes(target, freqs, train_x, train_y):
             "expected": {
                 "logprior": 0.0,
                 "loglikelihood": pickle.load(
-                    open("./support_files/loglikelihood_test.pkl", "rb")
+                    open("support_files/loglikelihood_test.pkl", "rb")
                 ),
             },
         },
@@ -300,7 +300,7 @@ def test_train_naive_bayes(target, freqs, train_x, train_y):
             "expected": {
                 "logprior": 0.6931471805599456,
                 "loglikelihood": pickle.load(
-                    open("./support_files/loglikelihood_test.pkl", "rb")
+                    open("support_files/loglikelihood_test.pkl", "rb")
                 ),
             },
         },
@@ -405,7 +405,7 @@ def test_naive_bayes_predict(target):
                 "tweet": "She smiled.",
                 "logprior": 0.0,
                 "loglikelihood": pickle.load(
-                    open("./support_files/loglikelihood_test.pkl", "rb")
+                    open("support_files/loglikelihood_test.pkl", "rb")
                 ),
             },
             "expected": 1.5577981920239676,
@@ -416,7 +416,7 @@ def test_naive_bayes_predict(target):
                 "tweet": "She did not answer my question.",
                 "logprior": 0.0,
                 "loglikelihood": pickle.load(
-                    open("./support_files/loglikelihood_test.pkl", "rb")
+                    open("support_files/loglikelihood_test.pkl", "rb")
                 ),
             },
             "expected": 0.6025188572932385,
@@ -427,7 +427,7 @@ def test_naive_bayes_predict(target):
                 "tweet": "She did not answer my question :(",
                 "logprior": 0.0,
                 "loglikelihood": pickle.load(
-                    open("./support_files/loglikelihood_test.pkl", "rb")
+                    open("support_files/loglikelihood_test.pkl", "rb")
                 ),
             },
             "expected": -6.924732171512272,
@@ -438,7 +438,7 @@ def test_naive_bayes_predict(target):
                 "tweet": "She smiled.",
                 "logprior": 0.6931471805599456,
                 "loglikelihood": pickle.load(
-                    open("./support_files/loglikelihood_test.pkl", "rb")
+                    open("support_files/loglikelihood_test.pkl", "rb")
                 ),
             },
             "expected": 2.2509453725839133,
@@ -449,7 +449,7 @@ def test_naive_bayes_predict(target):
                 "tweet": "She did not answer my question.",
                 "logprior": 0.6931471805599456,
                 "loglikelihood": pickle.load(
-                    open("./support_files/loglikelihood_test.pkl", "rb")
+                    open("support_files/loglikelihood_test.pkl", "rb")
                 ),
             },
             "expected": 1.2956660378531841,
@@ -460,7 +460,7 @@ def test_naive_bayes_predict(target):
                 "tweet": "She did not answer my question :(",
                 "logprior": 0.6931471805599456,
                 "loglikelihood": pickle.load(
-                    open("./support_files/loglikelihood_test.pkl", "rb")
+                    open("support_files/loglikelihood_test.pkl", "rb")
                 ),
             },
             "expected": -6.231584990952325,
@@ -504,7 +504,7 @@ def unittest_test_naive_bayes(target, test_x, test_y):
                 "test_y": test_y,
                 "logprior": 0.0,
                 "loglikelihood": pickle.load(
-                    open("./support_files/loglikelihood_test.pkl", "rb")
+                    open("support_files/loglikelihood_test.pkl", "rb")
                 ),
             },
             "expected": 0.9955,
@@ -516,7 +516,7 @@ def unittest_test_naive_bayes(target, test_x, test_y):
                 "test_y": np.concatenate((test_y[:100], test_y[-100:]), axis=0),
                 "logprior": 0.0,
                 "loglikelihood": pickle.load(
-                    open("./support_files/loglikelihood_test.pkl", "rb")
+                    open("support_files/loglikelihood_test.pkl", "rb")
                 ),
             },
             "expected": 0.995,
@@ -528,7 +528,7 @@ def unittest_test_naive_bayes(target, test_x, test_y):
                 "test_y": np.concatenate((test_y[:100], test_y[-100:]), axis=0),
                 "logprior": 0.6931471805599456,
                 "loglikelihood": pickle.load(
-                    open("./support_files/loglikelihood_test.pkl", "rb")
+                    open("support_files/loglikelihood_test.pkl", "rb")
                 ),
             },
             "expected": 0.995,
@@ -540,7 +540,7 @@ def unittest_test_naive_bayes(target, test_x, test_y):
                 "test_y": np.concatenate((test_y[:150], test_y[-100:]), axis=0),
                 "logprior": 0.0,
                 "loglikelihood": pickle.load(
-                    open("./support_files/loglikelihood_test.pkl", "rb")
+                    open("support_files/loglikelihood_test.pkl", "rb")
                 ),
             },
             "expected": 0.996,
@@ -552,7 +552,7 @@ def unittest_test_naive_bayes(target, test_x, test_y):
                 "test_y": np.concatenate((test_y[:150], test_y[-100:]), axis=0),
                 "logprior": 0.6931471805599456,
                 "loglikelihood": pickle.load(
-                    open("./support_files/loglikelihood_test.pkl", "rb")
+                    open("support_files/loglikelihood_test.pkl", "rb")
                 ),
             },
             "expected": 0.996,

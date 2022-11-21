@@ -22,4 +22,4 @@ def get_word_embeddings(embeddings):
 # Testing your function
 word_embeddings = get_word_embeddings(embeddings)
 print(len(word_embeddings))
-pickle.dump( word_embeddings, open( "word_embeddings_subset.p", "wb" ) )
+pickle.dump(word_embeddings, open("word_embeddings_subset.p", "wb"))
