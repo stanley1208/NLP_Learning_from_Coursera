@@ -5,45 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0ff9acdd-4749-4e0b-9a78-82f4a975b4e3" name="Changes" comment="update files">
-      <change afterPath="$PROJECT_DIR$/Course2/week1/Vocabulary Creation.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Course2/week1/Building The Model.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/csv-plugin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/csv-plugin.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/week1/Building and Visualizing word frequencies.py" beforeDir="false" afterPath="$PROJECT_DIR$/Course1/week1/Building and Visualizing word frequencies.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/week1/Logistic Regression.py" beforeDir="false" afterPath="$PROJECT_DIR$/Course1/week1/Logistic Regression.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/week1/Preprocessing.py" beforeDir="false" afterPath="$PROJECT_DIR$/Course1/week1/Preprocessing.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/week1/Visualizing tweets and the Logistic Regression model.py" beforeDir="false" afterPath="$PROJECT_DIR$/Course1/week1/Visualizing tweets and the Logistic Regression model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/week1/assignment.py" beforeDir="false" afterPath="$PROJECT_DIR$/Course1/week1/assignment.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/week1/logistic_features.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Course1/week1/logistic_features.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/week1/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/Course1/week1/utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/week1/w1_unittest.py" beforeDir="false" afterPath="$PROJECT_DIR$/Course1/week1/w1_unittest.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/week2/Naive Bayes.py" beforeDir="false" afterPath="$PROJECT_DIR$/Course1/week2/Naive Bayes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/week2/Visualizing likelihoods and confidence ellipses.py" beforeDir="false" afterPath="$PROJECT_DIR$/Course1/week2/Visualizing likelihoods and confidence ellipses.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/week2/bayes_features.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Course1/week2/bayes_features.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/week2/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/Course1/week2/utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/week2/w2_unittest.py" beforeDir="false" afterPath="$PROJECT_DIR$/Course1/week2/w2_unittest.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/week3/Assignment.py" beforeDir="false" afterPath="$PROJECT_DIR$/Course1/week3/Assignment.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/week3/Linear algebra in Python with NumPy.py" beforeDir="false" afterPath="$PROJECT_DIR$/Course1/week3/Linear algebra in Python with NumPy.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/week3/Manipulating word embeddings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Course1/week3/Manipulating word embeddings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/week3/PCA.py" beforeDir="false" afterPath="$PROJECT_DIR$/Course1/week3/PCA.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/week3/data/word_embeddings_subset.p" beforeDir="false" afterPath="$PROJECT_DIR$/Course1/week3/data/word_embeddings_subset.p" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/week3/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/Course1/week3/test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/week3/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/Course1/week3/utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/week3/w3_unittest.py" beforeDir="false" afterPath="$PROJECT_DIR$/Course1/week3/w3_unittest.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/week3/word_embeddings_subset.p" beforeDir="false" afterPath="$PROJECT_DIR$/Course1/week3/word_embeddings_subset.p" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/week4/Hash functions and multiplanes.py" beforeDir="false" afterPath="$PROJECT_DIR$/Course1/week4/Hash functions and multiplanes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/week4/Naive Machine Translation and LSH.py" beforeDir="false" afterPath="$PROJECT_DIR$/Course1/week4/Naive Machine Translation and LSH.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/week4/Vector manipulation.py" beforeDir="false" afterPath="$PROJECT_DIR$/Course1/week4/Vector manipulation.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/week4/data/en-fr.test.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Course1/week4/data/en-fr.test.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/week4/data/en-fr.train.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Course1/week4/data/en-fr.train.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/week4/data/en_embeddings.p" beforeDir="false" afterPath="$PROJECT_DIR$/Course1/week4/data/en_embeddings.p" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/week4/data/fr_embeddings.p" beforeDir="false" afterPath="$PROJECT_DIR$/Course1/week4/data/fr_embeddings.p" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/week4/transform_02.svg" beforeDir="false" afterPath="$PROJECT_DIR$/Course1/week4/transform_02.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/week4/transform_x.svg" beforeDir="false" afterPath="$PROJECT_DIR$/Course1/week4/transform_x.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/week4/transformx_and_y.svg" beforeDir="false" afterPath="$PROJECT_DIR$/Course1/week4/transformx_and_y.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/week4/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/Course1/week4/utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/week4/utils_nb.py" beforeDir="false" afterPath="$PROJECT_DIR$/Course1/week4/utils_nb.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/week4/w4_unittest.py" beforeDir="false" afterPath="$PROJECT_DIR$/Course1/week4/w4_unittest.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +52,28 @@
       <recent name="C:\Users\user\NLP-example\week2" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.Vocabulary Creation">
+  <component name="RunManager" selected="Python.Building The Model">
+    <configuration name="Building The Model" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="NLP-example" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Course2/week1" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Course2/week1/Building The Model.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="Naive Machine Translation and LSH (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="NLP-example" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -123,27 +108,6 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/week4/Naive Machine Translation and LSH.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Vector manipulation" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="NLP-example" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/week4" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/week4/Vector manipulation.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -210,11 +174,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.Building The Model" />
         <item itemvalue="Python.Vocabulary Creation" />
         <item itemvalue="Python.Naive Machine Translation and LSH (1)" />
         <item itemvalue="Python.Naive Machine Translation and LSH" />
         <item itemvalue="Python tests.Python tests for Naive Machine Translation and LSH.test_vocabulary" />
-        <item itemvalue="Python.Vector manipulation" />
       </list>
     </recent_temporary>
   </component>
@@ -402,7 +366,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667892272924</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="update files">
+      <created>1669020842303</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1669020842303</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
