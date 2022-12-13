@@ -54,7 +54,7 @@ print("edits :",edits)
 candidates=[]
 
 ### START CODE HERE ###
-candidates = set.intersection(set(vocab),edits)  # hint: 'set.intersection'/
+candidates = set.intersection(set(vocab),edits)
 ### END CODE HERE ###
 
 print('candidate words : ', candidates)

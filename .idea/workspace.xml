@@ -5,9 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0ff9acdd-4749-4e0b-9a78-82f4a975b4e3" name="Changes" comment="update files">
-      <change afterPath="$PROJECT_DIR$/Course2/week1/Building The Model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/csv-plugin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/csv-plugin.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Course2/week1/Autocorrect.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Course2/week1/data/shakespeare.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Course2/week1/w1_unittest.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Course2/week1/Building The Model.py" beforeDir="false" afterPath="$PROJECT_DIR$/Course2/week1/Building The Model.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,11 +39,13 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/week4" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Course2/week1/data" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\user\NLP-example\Course2\week1\data" />
+      <recent name="C:\Users\user\NLP-example\Course2\week1" />
       <recent name="C:\Users\user\NLP-example\week4" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -52,7 +56,28 @@
       <recent name="C:\Users\user\NLP-example\week2" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.Building The Model">
+  <component name="RunManager" selected="Python.Autocorrect">
+    <configuration name="Autocorrect" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="NLP-example" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Course2/week1" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Course2/week1/Autocorrect.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="Building The Model" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="NLP-example" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -158,27 +183,13 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Python tests for Naive Machine Translation and LSH.test_vocabulary" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
-      <module name="NLP-example" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Course1/week4" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;Naive Machine Translation and LSH.test_vocabulary&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.Autocorrect" />
         <item itemvalue="Python.Building The Model" />
         <item itemvalue="Python.Vocabulary Creation" />
         <item itemvalue="Python.Naive Machine Translation and LSH (1)" />
         <item itemvalue="Python.Naive Machine Translation and LSH" />
-        <item itemvalue="Python tests.Python tests for Naive Machine Translation and LSH.test_vocabulary" />
       </list>
     </recent_temporary>
   </component>
@@ -373,7 +384,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669020842303</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="update files">
+      <created>1669630214451</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1669630214451</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
