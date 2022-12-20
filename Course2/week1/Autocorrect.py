@@ -86,3 +86,35 @@ def get_probs(word_count_dict):
 probs = get_probs(word_count_dict)
 print(f"Length of probs is {len(probs)}")
 print(f"P('thee') is {probs['thee']:.4f}")
+
+
+# UNIT TEST COMMENT: Candidate for Table Driven Tests
+# UNQ_C4 GRADED FUNCTION: deletes
+def delete_letter(word, verbose=False):
+    '''
+    Input:
+        word: the string/word for which you will generate all possible words
+                in the vocabulary which have 1 missing character
+    Output:
+        delete_l: a list of all possible strings obtained by deleting 1 character from word
+    '''
+
+    delete_l = []
+    split_l = []
+
+    ### START CODE HERE ###
+    split_l=[(word[:i],word[i:]) for i in range(len(word))]
+    delete_l=[L+R[1:] for L,R in split_l if R]
+    ### END CODE HERE ###
+
+    if verbose: print(f"input word {word}, \nsplit_l = {split_l}, \ndelete_l = {delete_l}")
+
+    return delete_l
+
+
+delete_word_l = delete_letter(word="cans",
+                        verbose=True)
+print(delete_word_l)
+
+# test # 2
+print(f"Number of outputs of delete_letter('at') is {len(delete_letter('at'))}")
