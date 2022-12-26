@@ -53,7 +53,7 @@
       <recent name="C:\Users\user\NLP-example\week2" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.Building The Model">
+  <component name="RunManager" selected="Python.Autocorrect">
     <configuration name="Autocorrect" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="NLP-example" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -182,8 +182,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.Building The Model" />
         <item itemvalue="Python.Autocorrect" />
+        <item itemvalue="Python.Building The Model" />
         <item itemvalue="Python.Vocabulary Creation" />
         <item itemvalue="Python.Naive Machine Translation and LSH (1)" />
         <item itemvalue="Python.Naive Machine Translation and LSH" />
@@ -402,7 +402,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671444368301</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="update files">
+      <created>1671521605687</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1671521605687</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

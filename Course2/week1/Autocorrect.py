@@ -118,3 +118,36 @@ print(delete_word_l)
 
 # test # 2
 print(f"Number of outputs of delete_letter('at') is {len(delete_letter('at'))}")
+
+
+# UNIT TEST COMMENT: Candidate for Table Driven Tests
+# UNQ_C5 GRADED FUNCTION: switches
+def switch_letter(word, verbose=False):
+    '''
+    Input:
+        word: input string
+     Output:
+        switches: a list of all possible strings with one adjacent charater switched
+    '''
+
+    switch_l = []
+    split_l = []
+
+    ### START CODE HERE ###
+    split_l = [(word[:i], word[i:]) for i in range(len(word))]
+    switch_l = [L + R[1]+R[0]+R[2:] for L, R in split_l if len(R)>=2]
+    ### END CODE HERE ###
+
+    if verbose: print(f"Input word = {word} \nsplit_l = {split_l} \nswitch_l = {switch_l}")
+
+    return switch_l
+
+
+switch_word_l = switch_letter(word="eta",
+                         verbose=True)
+
+print(switch_word_l)
+
+# test # 2
+print(f"Number of outputs of switch_letter('at') is {len(switch_letter('at'))}")
+
