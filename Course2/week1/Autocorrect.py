@@ -151,3 +151,66 @@ print(switch_word_l)
 # test # 2
 print(f"Number of outputs of switch_letter('at') is {len(switch_letter('at'))}")
 
+
+# UNIT TEST COMMENT: Candidate for Table Driven Tests
+# UNQ_C6 GRADED FUNCTION: replaces
+def replace_letter(word, verbose=False):
+    '''
+    Input:
+        word: the input string/word
+    Output:
+        replaces: a list of all possible strings where we replaced one letter from the original word.
+    '''
+
+    letters = 'abcdefghijklmnopqrstuvwxyz'
+
+    replace_l = []
+    split_l = []
+
+    ### START CODE HERE ###
+    split_l = [(word[:i], word[i:]) for i in range(len(word))]
+    replace_l = [a+i+(b[1:] if len(b)>1 else "") for a, b in split_l if b for i in letters]
+    replace_set=set(replace_l)
+    replace_set.discard(word)
+    ### END CODE HERE ###
+
+    # turn the set back into a list and sort it, for easier viewing
+    replace_l = sorted(list(replace_set))
+
+    if verbose: print(f"Input word = {word} \nsplit_l = {split_l} \nreplace_l {replace_l}")
+
+    return replace_l
+
+replace_l = replace_letter(word='can',
+                              verbose=True)
+
+print(replace_l)
+# test # 2
+print(f"Number of outputs of replace_letter('at') is {len(replace_letter('at'))}")
+
+
+# UNIT TEST COMMENT: Candidate for Table Driven Tests
+# UNQ_C7 GRADED FUNCTION: inserts
+def insert_letter(word, verbose=False):
+    '''
+    Input:
+        word: the input string/word
+    Output:
+        inserts: a set of all possible strings with one new letter inserted at every offset
+    '''
+    letters = 'abcdefghijklmnopqrstuvwxyz'
+    insert_l = []
+    split_l = []
+
+    ### START CODE HERE ###
+    split_l = [(word[:i], word[i:]) for i in range(len(word)+1)]
+    insert_l = [a + i + b for a, b in split_l for i in letters]
+    ### END CODE HERE ###
+
+    if verbose: print(f"Input word {word} \nsplit_l = {split_l} \ninsert_l = {insert_l}")
+
+    return insert_l
+
+insert_l = insert_letter('at', True)
+print(insert_l)
+print(f"Number of strings output by insert_letter('at') is {len(insert_l)}")
