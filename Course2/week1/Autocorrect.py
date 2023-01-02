@@ -214,3 +214,69 @@ def insert_letter(word, verbose=False):
 insert_l = insert_letter('at', True)
 print(insert_l)
 print(f"Number of strings output by insert_letter('at') is {len(insert_l)}")
+
+
+# UNIT TEST COMMENT: Candidate for Table Driven Tests
+# UNQ_C8 GRADED FUNCTION: edit_one_letter
+def edit_one_letter(word, allow_switches=True):
+    """
+    Input:
+        word: the string/word for which we will generate all possible wordsthat are one edit away.
+    Output:
+        edit_one_set: a set of words with one possible edit. Please return a set. and not a list.
+    """
+
+    edit_one_set = set()
+
+    ### START CODE HERE ###
+    edit_one_set=delete_letter(word)
+    if allow_switches:
+        edit_one_set+=switch_letter(word)
+    edit_one_set+=replace_letter(word)
+    edit_one_set+=insert_letter(word)
+    ### END CODE HERE ###
+
+    # return this as a set and not a list
+    return set(edit_one_set)
+
+
+tmp_word = "at"
+tmp_edit_one_set = edit_one_letter(tmp_word)
+# turn this into a list to sort it, in order to view it
+tmp_edit_one_l = sorted(list(tmp_edit_one_set))
+
+print(f"input word {tmp_word} \nedit_one_l \n{tmp_edit_one_l}\n")
+print(f"The type of the returned object should be a set {type(tmp_edit_one_set)}")
+print(f"Number of outputs from edit_one_letter('at') is {len(edit_one_letter('at'))}")
+
+
+# UNIT TEST COMMENT: Candidate for Table Driven Tests
+# UNQ_C9 GRADED FUNCTION: edit_two_letters
+def edit_two_letters(word, allow_switches=True):
+    '''
+    Input:
+        word: the input string/word
+    Output:
+        edit_two_set: a set of strings with all possible two edits
+    '''
+
+    edit_two_set = set()
+
+    ### START CODE HERE ###
+    edit_1=edit_one_letter(word,allow_switches=allow_switches)
+    for i in edit_1:
+        edit_2=edit_one_letter(i,allow_switches=allow_switches)
+        edit_two_set.update(edit_2)
+    ### END CODE HERE ###
+
+    # return this as a set instead of a list
+    return set(edit_two_set)
+
+
+tmp_edit_two_set = edit_two_letters("a")
+tmp_edit_two_l = sorted(list(tmp_edit_two_set))
+print(f"Number of strings with edit distance of two: {len(tmp_edit_two_l)}")
+print(f"First 10 strings {tmp_edit_two_l[:10]}")
+print(f"Last 10 strings {tmp_edit_two_l[-10:]}")
+print(f"The data type of the returned object should be a set {type(tmp_edit_two_set)}")
+print(f"Number of strings that are 2 edit distances from 'at' is {len(edit_two_letters('at'))}")
