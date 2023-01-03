@@ -280,3 +280,59 @@ print(f"First 10 strings {tmp_edit_two_l[:10]}")
 print(f"Last 10 strings {tmp_edit_two_l[-10:]}")
 print(f"The data type of the returned object should be a set {type(tmp_edit_two_set)}")
 print(f"Number of strings that are 2 edit distances from 'at' is {len(edit_two_letters('at'))}")
+
+
+# UNIT TEST COMMENT: Candidate for Table Driven Tests
+# UNQ_C10 GRADED FUNCTION: get_corrections
+def get_corrections(word, probs, vocab, n=2, verbose=False):
+    '''
+    Input:
+        word: a user entered string to check for suggestions
+        probs: a dictionary that maps each word to its probability in the corpus
+        vocab: a set containing all the vocabulary
+        n: number of possible word corrections you want returned in the dictionary
+    Output:
+        n_best: a list of tuples with the most probable n corrected words and their probabilities.
+    '''
+
+    suggestions = []
+    n_best = []
+
+    ### START CODE HERE ###
+    # Step 1: create suggestions as described above
+    if word in vocab and word:
+        suggestions=vocab.intersection(word)
+    elif edit_one_letter(word).intersection(vocab):
+        suggestions=list(edit_one_letter(word).intersection(vocab))
+    elif edit_two_letters(word).intersection(vocab):
+        suggestions=list(edit_two_letters(word).intersection(vocab))
+    else:
+        return list(word)
+
+
+
+    # Step 2: determine probability of suggestions
+
+    # c=Counter([suggestions,probs[suggestions]])
+
+    # Step 3: Get all your best words and return the most probable top n_suggested words as n_best
+    # suggestions = list((word in vocab and word) or edit_one_letter(word).intersection(vocab) or edit_two_letters(word).intersection(vocab))
+
+    n_best=[[s, probs[s]] for s in list((suggestions))]
+    # n_best=c.most_common(probs[suggestions])
+
+    ### END CODE HERE ###
+
+    if verbose: print("entered word = ", word, "\nsuggestions = ", suggestions)
+
+    return n_best
+
+
+# Test your implementation - feel free to try other words in my word
+my_word = 'dys'
+tmp_corrections = get_corrections(my_word, probs, vocab, 2, verbose=True) # keep verbose=True
+for i, word_prob in enumerate(tmp_corrections):
+    print(f"word {i}: {word_prob[0]}, probability {word_prob[1]:.6f}")
+
+# CODE REVIEW COMMENT: using "tmp_corrections" insteads of "cors". "cors" is not defined
+print(f"data type of corrections {type(tmp_corrections)}")
