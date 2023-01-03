@@ -3,7 +3,7 @@ from collections import Counter
 import numpy as np
 import pandas as pd
 import os
-
+import w1_unittest
 
 
 # UNQ_C1 GRADED FUNCTION: process_data
@@ -318,7 +318,7 @@ def get_corrections(word, probs, vocab, n=2, verbose=False):
     # Step 3: Get all your best words and return the most probable top n_suggested words as n_best
     # suggestions = list((word in vocab and word) or edit_one_letter(word).intersection(vocab) or edit_two_letters(word).intersection(vocab))
 
-    n_best=[[s, probs[s]] for s in list((suggestions))]
+    n_best=[[s, probs[s]] for s in list(reversed(suggestions))]
     # n_best=c.most_common(probs[suggestions])
 
     ### END CODE HERE ###
@@ -336,3 +336,7 @@ for i, word_prob in enumerate(tmp_corrections):
 
 # CODE REVIEW COMMENT: using "tmp_corrections" insteads of "cors". "cors" is not defined
 print(f"data type of corrections {type(tmp_corrections)}")
+
+
+# Test your function
+w1_unittest.test_get_corrections(get_corrections, probs, vocab)
