@@ -6,3 +6,4 @@ val1 =  ["Most","Likely"] or ["Less","so"] or ["least","of","all"]  # selects fi
 print(val1)
 val2 =  [] or [] or ["least","of","all"] # continues evaluation until there is a non-empty list
 print(val2)
+
