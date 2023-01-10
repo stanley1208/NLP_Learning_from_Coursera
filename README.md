@@ -1,1 +1,1 @@
-This is the NLP example code I learn from the Coursera.
+This is the NLP example code I practice and learn from the Coursera.
