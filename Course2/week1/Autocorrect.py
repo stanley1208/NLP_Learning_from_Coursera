@@ -391,7 +391,7 @@ def min_edit_distance(source, target, ins_cost=1, del_cost=1, rep_cost=2):
             D[row, col] = min(D[row-1,col]+del_cost,D[row,col-1]+ins_cost,D[row-1,col-1]+r_cost)
 
     # Set the minimum edit distance with the cost found at row m, column n
-    med = D[m, n]
+    med = D[row, col]
 
     ### END CODE HERE ###
     return D, med
