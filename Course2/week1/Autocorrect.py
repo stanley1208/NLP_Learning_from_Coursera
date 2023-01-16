@@ -422,3 +422,17 @@ cols = list(target)
 cols.insert(0, '#')
 df = pd.DataFrame(matrix, index=idx, columns= cols)
 print(df)
+
+source = "eer"
+targets = edit_one_letter(source,allow_switches = False)  #disable switches since min_edit_distance does not include them
+for t in targets:
+    _, min_edits = min_edit_distance(source, t,1,1,1)  # set ins, del, sub costs all to one
+    if min_edits != 1:
+        print(source, t, min_edits)
+
+source = "eer"
+targets = edit_two_letters(source,allow_switches = False) #disable switches since min_edit_distance does not include them
+for t in targets:
+    _, min_edits = min_edit_distance(source, t,1,1,1)  # set ins, del, sub costs all to one
+    if min_edits != 2 and min_edits != 1:
+        print(source, t, min_edits)
