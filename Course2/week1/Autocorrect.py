@@ -367,6 +367,7 @@ def min_edit_distance(source, target, ins_cost=1, del_cost=1, rep_cost=2):
     for row in range(1, m+1):  # Replace None with the proper range
         D[row, 0] = D[row-1,0]+del_cost
 
+
     # Fill in row 0, for all columns from 1 to n, both inclusive
     for col in range(1, n+1):  # Replace None with the proper range
         D[0, col] = D[0,col-1]+ins_cost
@@ -386,12 +387,22 @@ def min_edit_distance(source, target, ins_cost=1, del_cost=1, rep_cost=2):
                 # Update the replacement cost to 0 if source and target are the same
                 r_cost = 0
 
+
             # Update the cost at row, col based on previous entries in the cost matrix
             # Refer to the equation calculate for D[i,j] (the minimum of three calculated costs)
             D[row, col] = min(D[row-1,col]+del_cost,D[row,col-1]+ins_cost,D[row-1,col-1]+r_cost)
 
+
+
+
+
+
+
     # Set the minimum edit distance with the cost found at row m, column n
     med = D[row, col]
+
+
+
 
     ### END CODE HERE ###
     return D, med
@@ -408,6 +419,7 @@ cols = list('#' + target)
 df = pd.DataFrame(matrix, index=idx, columns= cols)
 print(df)
 
+
 print("-----------------------")
 
 #DO NOT MODIFY THIS CELL
@@ -423,16 +435,21 @@ cols.insert(0, '#')
 df = pd.DataFrame(matrix, index=idx, columns= cols)
 print(df)
 
-source = "eer"
-targets = edit_one_letter(source,allow_switches = False)  #disable switches since min_edit_distance does not include them
-for t in targets:
-    _, min_edits = min_edit_distance(source, t,1,1,1)  # set ins, del, sub costs all to one
-    if min_edits != 1:
-        print(source, t, min_edits)
 
-source = "eer"
-targets = edit_two_letters(source,allow_switches = False) #disable switches since min_edit_distance does not include them
-for t in targets:
-    _, min_edits = min_edit_distance(source, t,1,1,1)  # set ins, del, sub costs all to one
-    if min_edits != 2 and min_edits != 1:
-        print(source, t, min_edits)
+# source = "eer"
+# targets = edit_one_letter(source,allow_switches = False)  #disable switches since min_edit_distance does not include them
+# for t in targets:
+#     _, min_edits = min_edit_distance(source, t,1,1,1)  # set ins, del, sub costs all to one
+#     if min_edits != 1:
+#         print(source, t, min_edits)
+#
+# source = "eer"
+# targets = edit_two_letters(source,allow_switches = False) #disable switches since min_edit_distance does not include them
+# for t in targets:
+#     _, min_edits = min_edit_distance(source, t,1,1,1)  # set ins, del, sub costs all to one
+#     if min_edits != 2 and min_edits != 1:
+#         print(source, t, min_edits)
+
+
+
+
