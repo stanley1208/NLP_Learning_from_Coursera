@@ -552,7 +552,7 @@ def viterbi_backward(best_probs, best_paths, corpus, states):
         # Retrieve the unique integer ID of
         # the POS tag for the word at position 'i' in the corpus
         pos_tag_for_word_i = best_paths[np.argmax(best_probs[:,i]),i]
-
+        print(pos_tag_for_word_i)
         # In best_paths, go to the row representing the POS tag of word i
         # and the column representing the word's position in the corpus
         # to retrieve the predicted POS for the word at position i-1 in the corpus
@@ -573,3 +573,51 @@ pred = viterbi_backward(best_probs, best_paths, prep, states)
 m=len(pred)
 print('The prediction for pred[-7:m-1] is: \n', prep[-7:m-1], "\n", pred[-7:m-1], "\n")
 print('The prediction for pred[0:8] is: \n', pred[0:7], "\n", prep[0:7])
+
+
+print('The third word is:', prep[3])
+print('Your prediction is:', pred[3])
+print('Your corresponding label y is: ', y[3])
+
+
+# UNQ_C8 GRADED FUNCTION: compute_accuracy
+def compute_accuracy(pred, y):
+    '''
+    Input:
+        pred: a list of the predicted parts-of-speech
+        y: a list of lines where each word is separated by a '\t' (i.e. word \t tag)
+    Output:
+
+    '''
+    num_correct = 0
+    total = 0
+
+    # Zip together the prediction and the labels
+    for prediction, y in zip(pred, y):
+        ### START CODE HERE (Replace instances of 'None' with your code) ###
+        # Split the label into the word and the POS tag
+        word_tag_tuple = y.split()
+
+        # Check that there is actually a word and a tag
+        # no more and no less than 2 items
+        if len(word_tag_tuple)!=2:  # Replace None in this line with the proper condition.
+            continue
+
+        # store the word and tag separately
+        word, tag = word_tag_tuple
+
+        # Check if the POS tag label matches the prediction
+        if prediction==tag:  # Replace None in this line with the proper condition.
+
+            # count the number of times that the prediction
+            # and label match
+            num_correct += 1
+
+        # keep track of the total number of examples (that have valid labels)
+        total += 1
+
+        ### END CODE HERE ###
+    return num_correct / total
+
+
+print(f"Accuracy of the Viterbi algorithm is {compute_accuracy(pred, y):.4f}")
