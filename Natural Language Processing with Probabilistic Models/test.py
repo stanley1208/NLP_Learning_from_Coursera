@@ -1,6 +1,8 @@
-li=[1,2,3,4,5]
+import numpy as np
+k=np.matrix([[1,2],
+             [3,4],
+             [5,6]])
 
-l=len(li)
+print(k.shape[0])
+print(k.shape[1])
 
-for i in range(l-1,-1,-1):
-    print(li[i])

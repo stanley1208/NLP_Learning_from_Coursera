@@ -1,6 +1,7 @@
 import numpy as np
 import pandas as pd
 from collections import defaultdict
+import random
 
 
 def single_pass_trigram_count_matrix(corpus):
@@ -48,6 +49,42 @@ def single_pass_trigram_count_matrix(corpus):
     return bigrams,vocabulary,count_matrix
 
 
+# we only need train and validation %, test is the remainder
+def train_validation_test_split(data, train_percent, validation_percent):
+    """
+    Splits the input data to  train/validation/test according to the percentage provided
+
+    Args:
+        data: Pre-processed and tokenized corpus, i.e. list of sentences.
+        train_percent: integer 0-100, defines the portion of input corpus allocated for training
+        validation_percent: integer 0-100, defines the portion of input corpus allocated for validation
+
+        Note: train_percent + validation_percent need to be <=100
+              the reminder to 100 is allocated for the test set
+
+    Returns:
+        train_data: list of sentences, the training part of the corpus
+        validation_data: list of sentences, the validation part of the corpus
+        test_data: list of sentences, the test part of the corpus
+    """
+    # fixed seed here for reproducibility
+    random.seed(87)
+
+    # reshuffle all input sentences
+    random.shuffle(data)
+
+    train_size=int(len(data)*train_percent/100)
+    train_data=data[0:train_size]
+
+    validation_size=int(len(data)*validation_percent/100)
+    validation_data=data[train_size:train_size+validation_size]
+
+    test_data=data[train_size + validation_size]
+
+    return train_data,validation_data,test_data
+
+
+
 corpus=['i','am','happy','because','i','am','learning','.']
 
 bigrams,vocabulary,count_matrix=single_pass_trigram_count_matrix(corpus)
@@ -55,6 +92,8 @@ bigrams,vocabulary,count_matrix=single_pass_trigram_count_matrix(corpus)
 print(count_matrix)
 
 print("-----------------------------------")
+
+# Count matrix
 
 # manipulate n_gram count dictionary
 n_gram_counts={
@@ -87,3 +126,53 @@ n_gram=prefix+(word,)
 print(n_gram)
 
 
+# Probability matrix
+# create the probability matrix from the count matrix
+rows_sum=count_matrix.sum(axis=1)
+# divide each row by its sum
+prob_matrix=count_matrix.div(rows_sum,axis=0)
+print(prob_matrix)
+
+
+# find the probability of a trigram in the probability matrix
+trigram=('i','am','happy')
+
+# find the prefix bigram
+bigram=trigram[0:-1]
+print(f"bigram: {bigram}")
+
+# find the last word of the trigram
+word=trigram[-1]
+print(f'word: {word}')
+
+# we are using the pandas dataframes here, column with vocabulary word comes first, row with the prefix bigram second
+trigram_prob=prob_matrix[word][bigram]
+print(f'trigram_prob: {trigram_prob}')
+
+
+# lists all words in vocabulary starting with a given prefix
+vocabulary=['i','am','happy','because','fun','learning','.','have','you','seen','it','?','hahoho']
+starts_with='ha'
+print(f'words in vocal starting with prefix:{starts_with}')
+for word in vocabulary:
+    if word.startswith(starts_with):
+        print(word)
+
+
+data = [x for x in range (0, 100)]
+
+train_data, validation_data, test_data = train_validation_test_split(data, 80, 10)
+print("split 80/10/10:\n",f"train data:{train_data}\n", f"validation data:{validation_data}\n",
+      f"test data:{test_data}\n")
+
+train_data, validation_data, test_data = train_validation_test_split(data, 98, 1)
+print("split 98/1/1:\n",f"train data:{train_data}\n", f"validation data:{validation_data}\n",
+      f"test data:{test_data}\n")
+
+
+
+# Perplexity
+p=10**(-300)
+M=100
+perplexity=p**(-1/M)
+print(perplexity)
