@@ -63,7 +63,7 @@ bigram_probabilities_unk={('i','am'):1.0,('am','<UNK>'):1.0,('<UNK>','<UNK>'):0.
 for i in range(len(test_set)-1):
     bigram=tuple(test_set[i:i+2])
     probability=probability*bigram_probabilities[bigram]
-    bigram_unk=tuple(training_set_unk[i:i+2])
+    bigram_unk=tuple(test_set_unk[i:i+2])
     probability_unk=probability_unk*bigram_probabilities_unk[bigram_unk]
 
 # calculate perplexity for both original test set and test set with <UNK>
@@ -92,3 +92,69 @@ probability_unknown_trigram=add_k_smoothing_probability(k,
 
 print(f'probability_known_trigram: {probability_known_trigram}')
 print(f'probability_unknown_trigram: {probability_unknown_trigram}')
+
+
+# pre-calculated probabilities of all types of n-grams
+trigram_probabilities={('i','am','happy'):0}
+bigram_probabilities={('am','happy'):0.3}
+unigram_probabilities={('happy'):0.4}
+
+# this is the input trigram we need to estimate
+trigram=('are','you','sad')
+
+# find the last bigram and unigram of the input
+bigram=trigram[1:3]
+unigram=trigram[2]
+print(f'besides the trigram {trigram} we alse use bigram {bigram} and unigram {unigram}')
+
+# 0.4 is used as an example, experimentally found for web-scale corpuses when using the "stupid" back-off
+lambda_factor=0.4
+probability_hat_trigram=0
+
+# search for first non-zero probability starting with trigram
+# to generalize this for any order of n-gram hierarchy,
+# you could loop through the probability dictionaries instead of if/else cascade
+if trigram not in trigram_probabilities or trigram_probabilities[trigram]==0:
+    print(f'probability for trigram {trigram} not found')
+
+    if bigram not in bigram_probabilities or bigram_probabilities[bigram]==0:
+        print(f'probability for bigram {bigram} not found')
+
+        if unigram in unigram_probabilities:
+            print(f'probability for unigram {unigram} found\n')
+            probability_hat_trigram=lambda_factor*lambda_factor*unigram_probabilities[unigram]
+        else:
+            probability_hat_trigram=0
+
+    else:
+        probability_hat_trigram=lambda_factor*bigram_probabilities[bigram]
+else:
+    probability_hat_trigram=trigram_probabilities[trigram]
+
+print(f'probability for trigram {trigram} estimated as {probability_hat_trigram}')
+
+
+# pre-calculated probabilities of all types of n-grams
+trigram_probabilities={('i','am','happy'):0.155}
+bigram_probabilities={('am','happy'):0.3}
+unigram_probabilities={('happy'):0.4}
+
+
+# the weights come from optimization on a validation set
+lambda1=0.8
+lambda2=0.4
+lambda3=0.001
+
+# this is the input trigram we need to estimate
+trigram=('i','am','happy')
+
+# find the last bigram and unigram of the input
+bigram=trigram[1:3]
+unigram=trigram[2]
+print(f'besides the trigram {trigram} we also use bigram {bigram} and unigram {unigram}')
+
+
+# in the production code, you would need to check if the probability n-gram dictionary contains the n-gram
+probability_hat_trigram=lambda1*trigram_probabilities[trigram]+ lambda2*bigram_probabilities[bigram] + lambda3*unigram_probabilities[unigram]
+
+print(f'probability for trigram {trigram} estimated as {probability_hat_trigram}')
