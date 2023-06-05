@@ -105,7 +105,7 @@ trigram=('are','you','sad')
 # find the last bigram and unigram of the input
 bigram=trigram[1:3]
 unigram=trigram[2]
-print(f'besides the trigram {trigram} we alse use bigram {bigram} and unigram {unigram}')
+print(f'besides the trigram {trigram} we also use bigram {bigram} and unigram {unigram}')
 
 # 0.4 is used as an example, experimentally found for web-scale corpuses when using the "stupid" back-off
 lambda_factor=0.4
