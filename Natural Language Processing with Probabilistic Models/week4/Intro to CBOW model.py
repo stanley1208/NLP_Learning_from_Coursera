@@ -20,3 +20,26 @@ def relu(z):
 
 z = np.array([[-1.25459881], [ 4.50714306], [ 2.31993942], [ 0.98658484], [-3.4398136 ]])
 print(relu(z))
+
+
+# Softmax
+z=np.array([9,8,11,10,8.5])
+print(z)
+
+e_z=np.exp(z)
+print(e_z)
+
+sum_e_z=np.sum(e_z)
+print(sum_e_z)
+
+print(e_z[0]/sum_e_z)
+
+def softmax(z):
+    e_z=np.exp(z)
+    sum_e_z=np.sum(e_z)
+    return e_z/sum_e_z
+
+print(softmax([9,8,11,10,8.5]))
+
+print(np.sum(softmax([9,8,11,10,8.5]))==1)
+
