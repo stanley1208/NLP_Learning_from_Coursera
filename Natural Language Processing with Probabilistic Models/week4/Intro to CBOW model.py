@@ -43,3 +43,16 @@ print(softmax([9,8,11,10,8.5]))
 
 print(np.sum(softmax([9,8,11,10,8.5]))==1)
 
+
+# 1-D arrays vs 2-D column vectors
+V=5
+x_array=np.zeros(V)
+print(x_array)
+print(x_array.shape)
+
+x_column_vector=x_array.copy()
+x_column_vector.shape=(V,1)
+print(x_column_vector)
+print(x_column_vector.shape)
+
+
