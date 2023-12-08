@@ -36,3 +36,36 @@ print(f'size of W1: {W1.shape} (NxV)')
 print(f'size of b1: {b1.shape} (Nx1)')
 print(f'size of W1: {W2.shape} (VxN)')
 print(f'size of W1: {b2.shape} (Vx1)')
+
+
+# Define the tokenized version of the corpus
+words = ['i', 'am', 'happy', 'because', 'i', 'am', 'learning']
+
+# Get 'word2Ind' and 'Ind2word' dictionaries for the tokenized corpus
+word2Ind, Ind2word = get_dict(words)
+
+# Define the 'get_windows' function as seen in a previous notebook
+def get_windows(words, C):
+    i = C
+    while i < len(words) - C:
+        center_word = words[i]
+        context_words = words[(i - C):i] + words[(i+1):(i+C+1)]
+        yield context_words, center_word
+        i += 1
+
+# Define the 'word_to_one_hot_vector' function as seen in a previous notebook
+def word_to_one_hot_vector(word, word2Ind, V):
+    one_hot_vector = np.zeros(V)
+    one_hot_vector[word2Ind[word]] = 1
+    return one_hot_vector
+
+# Define the 'context_words_to_vector' function as seen in a previous notebook
+def context_words_to_vector(context_words, word2Ind, V):
+    context_words_vectors = [word_to_one_hot_vector(w, word2Ind, V) for w in context_words]
+    context_words_vectors = np.mean(context_words_vectors, axis=0)
+    return context_words_vectors
+
+# Define the generator function 'get_training_example' as seen in a previous notebook
+def get_training_example(words, C, word2Ind, V):
+    for context_words, center_word in get_windows(words, C):
+        yield context_words_to_vector(context_words, word2Ind, V), word_to_one_hot_vector(center_word, word2Ind, V)
