@@ -69,3 +69,13 @@ def context_words_to_vector(context_words, word2Ind, V):
 def get_training_example(words, C, word2Ind, V):
     for context_words, center_word in get_windows(words, C):
         yield context_words_to_vector(context_words, word2Ind, V), word_to_one_hot_vector(center_word, word2Ind, V)
+
+
+training_examples=get_training_example(words,2,word2Ind,V)
+
+x_array,y_array=next(training_examples)
+
+print(x_array)
+print(y_array)
+
+
