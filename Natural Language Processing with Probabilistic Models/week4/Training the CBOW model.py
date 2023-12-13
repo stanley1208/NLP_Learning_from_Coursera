@@ -78,4 +78,24 @@ x_array,y_array=next(training_examples)
 print(x_array)
 print(y_array)
 
+x=x_array.copy()
+x.shape=(V,1)
+print(x)
+y=y_array.copy()
+y.shape=(V,1)
+print(y)
+
+
+def relu(z):
+    result=z.copy()
+    result[result<0]=0
+    return result
+
+def softmax(z):
+    e_z=np.exp(z)
+    sum_e_z=np.sum(e_z)
+    return e_z/sum_e_z
+
+
+
 
