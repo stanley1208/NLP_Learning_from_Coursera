@@ -56,3 +56,5 @@ print(x_column_vector)
 print(x_column_vector.shape)
 
 
+
+

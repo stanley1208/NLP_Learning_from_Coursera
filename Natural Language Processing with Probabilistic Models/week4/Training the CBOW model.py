@@ -44,6 +44,9 @@ words = ['i', 'am', 'happy', 'because', 'i', 'am', 'learning']
 # Get 'word2Ind' and 'Ind2word' dictionaries for the tokenized corpus
 word2Ind, Ind2word = get_dict(words)
 
+
+print(word2Ind)
+print(Ind2word)
 # Define the 'get_windows' function as seen in a previous notebook
 def get_windows(words, C):
     i = C
@@ -97,5 +100,16 @@ def softmax(z):
     return e_z/sum_e_z
 
 
+z1=np.dot(W1,x)+b1
+print(z1)
+h=relu(z1)
+print(h)
 
+z2=np.dot(W2,h)+b2
+print(z2)
+y_hat=softmax(z2)
+print(y_hat)
+
+
+print(Ind2word[np.argmax(y_hat)])
 
