@@ -113,3 +113,11 @@ print(y_hat)
 
 print(Ind2word[np.argmax(y_hat)])
 
+print(y_hat)
+print(y)
+
+
+def cross_entropy_loss(y_predicted, y_actual):
+    # Fill the loss variable with your code
+    loss = -(np.sum(y_actual*(np.log(y_predicted))))
+    return loss
