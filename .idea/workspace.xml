@@ -241,7 +241,8 @@
       <workItem from="1717066499050" duration="1737000" />
       <workItem from="1717081785448" duration="50000" />
       <workItem from="1717236832937" duration="70000" />
-      <workItem from="1717661387301" duration="977000" />
+      <workItem from="1717661387301" duration="1102000" />
+      <workItem from="1718276995010" duration="407000" />
     </task>
     <task id="LOCAL-00001" summary="update files">
       <created>1656580784346</created>
@@ -537,7 +538,7 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/NLP_Project_master$Training_the_CBOW_model.coverage" NAME="Training the CBOW model Coverage Results" MODIFIED="1717066116859" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Natural Language Processing with Probabilistic Models/week4" />
     <SUITE FILE_PATH="coverage/NLP_Project_master$Intro_to_CBOW_model.coverage" NAME="Intro to CBOW model Coverage Results" MODIFIED="1717065866794" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Natural Language Processing with Probabilistic Models/week4" />
-    <SUITE FILE_PATH="coverage/NLP_Project_master$Data_Preparation.coverage" NAME="Data Preparation Coverage Results" MODIFIED="1717662376400" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Natural Language Processing with Probabilistic Models/week4" />
+    <SUITE FILE_PATH="coverage/NLP_Project_master$Data_Preparation.coverage" NAME="Data Preparation Coverage Results" MODIFIED="1718277329060" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Natural Language Processing with Probabilistic Models/week4" />
     <SUITE FILE_PATH="coverage/NLP_Project_master$test__1_.coverage" NAME="test (1) Coverage Results" MODIFIED="1717065766421" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Natural Language Processing with Probabilistic Models" />
   </component>
 </project>

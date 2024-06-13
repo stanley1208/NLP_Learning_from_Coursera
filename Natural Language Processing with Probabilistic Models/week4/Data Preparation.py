@@ -50,3 +50,8 @@ corpus='I am happ because I am learning.'
 print(f'Corpus: {corpus}')
 data=tokenize(corpus)
 print(f'After tokenize: {data}')
+
+corpus='I like her, I hope she can like me as well and talk to me!'
+data=tokenize(corpus)
+print(data)
+
