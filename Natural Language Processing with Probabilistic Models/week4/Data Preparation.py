@@ -18,6 +18,18 @@ def tokenize(corpus):
             or emoji.get_emoji_regexp().search(ch)
             ]
     return data
+
+# Define the 'get_windows' function
+def get_windows(words,C):
+    i=C
+    while i<len(words)-C:
+        center_word=words[i]
+        context_word=words[(i-C):i]+words[(i+1):(i+C+1)]
+        yield context_word,center_word
+        i+=1
+
+
+
 # Define a corpus
 corpus = 'Who ❤️ "word embeddings" in 2020? I do!!!'
 
@@ -55,3 +67,6 @@ corpus='I like her, I hope she can like me as well and talk to me!'
 data=tokenize(corpus)
 print(data)
 
+# Print 'context_words' and 'center_word' for the new corpus with a 'context half-size' of 2
+for x, y in get_windows(['i', 'am', 'happy', 'because', 'i', 'am', 'learning'], 2):
+    print(f'{x}\t{y}')
