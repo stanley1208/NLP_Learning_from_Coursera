@@ -70,3 +70,7 @@ print(data)
 # Print 'context_words' and 'center_word' for the new corpus with a 'context half-size' of 2
 for x, y in get_windows(['i', 'am', 'happy', 'because', 'i', 'am', 'learning'], 2):
     print(f'{x}\t{y}')
+
+# Print 'context_words' and 'center_word' for the new corpus with a 'context half-size' of 1
+for x, y in get_windows(tokenize("I like her so much but she do not like me as I do."), 1):
+    print(f'{x}\t{y}')
