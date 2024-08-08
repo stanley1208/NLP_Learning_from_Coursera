@@ -82,3 +82,18 @@ word2Ind, Ind2word = get_dict(words)
 print(word2Ind)
 
 print("Index of the word 'i': ",word2Ind['i'])
+
+print(Ind2word)
+
+print("Which word has index 2:",Ind2word[2])
+
+V=len(word2Ind)
+print("size of the V",V)
+
+# Save index of word 'happy' into the 'n' variable
+n=word2Ind['her']
+print(n)
+
+# Create vector with the same length as the vocabulary, filled with zeros
+center_word_vector=np.zeros(V)
+print(center_word_vector)
