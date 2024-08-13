@@ -97,3 +97,11 @@ print(n)
 # Create vector with the same length as the vocabulary, filled with zeros
 center_word_vector=np.zeros(V)
 print(center_word_vector)
+
+print(len(center_word_vector)==V)
+
+# Replace element number 'n' with a 1
+center_word_vector[n]=1
+
+print(center_word_vector)
+
