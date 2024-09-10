@@ -58,21 +58,21 @@ data=[ ch.lower() for ch in data
 print(f'After cleaning: {data}')
 
 #define the corpus
-corpus='I am happ because I am learning.'
+corpus='I am happy because I am learning.'
 print(f'Corpus: {corpus}')
 data=tokenize(corpus)
 print(f'After tokenize: {data}')
 
-corpus='I like her, I hope she can like me as well and talk to me!'
+corpus='I am happy because I am learning'
 words=tokenize(corpus)
 print(data)
 
 # Print 'context_words' and 'center_word' for the new corpus with a 'context half-size' of 2
-for x, y in get_windows(['i', 'am', 'happy', 'because', 'i', 'am', 'learning'], 2):
+for x, y in get_windows(['I', 'am', 'happy', 'because', 'i', 'am', 'learning'], 2):
     print(f'{x}\t{y}')
 
 # Print 'context_words' and 'center_word' for the new corpus with a 'context half-size' of 1
-for x, y in get_windows(tokenize("I like her so much but she do not like me as I do."), 1):
+for x, y in get_windows(tokenize("I am happy because I am learning."), 1):
     print(f'{x}\t{y}')
 
 
@@ -91,7 +91,7 @@ V=len(word2Ind)
 print("size of the V",V)
 
 # Save index of word 'happy' into the 'n' variable
-n=word2Ind['her']
+n=word2Ind['happy']
 print(n)
 
 # Create vector with the same length as the vocabulary, filled with zeros
@@ -105,3 +105,12 @@ center_word_vector[n]=1
 
 print(center_word_vector)
 
+
+# Define the 'word_to_one_hot_vector' function that will include the steps previously seen
+def word_to_one_hot_vector(word,word2Ind,V):
+    one_hot_vector = np.zeros(V)
+    one_hot_vector[word2Ind[word]]=1
+    return one_hot_vector
+
+print(word_to_one_hot_vector('happy',word2Ind,V))
+print(word_to_one_hot_vector('i',word2Ind,V))
