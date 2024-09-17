@@ -103,7 +103,7 @@ print(len(center_word_vector)==V)
 # Replace element number 'n' with a 1
 center_word_vector[n]=1
 
-print(center_word_vector)
+# print(center_word_vector)
 
 
 # Define the 'word_to_one_hot_vector' function that will include the steps previously seen
@@ -114,3 +114,17 @@ def word_to_one_hot_vector(word,word2Ind,V):
 
 print(word_to_one_hot_vector('happy',word2Ind,V))
 print(word_to_one_hot_vector('i',word2Ind,V))
+
+
+# Define list containing context words
+context_words=['i','am','because','i']
+
+
+# Create one-hot vectors for each context word using list comprehension
+context_words_vectors=[word_to_one_hot_vector(w,word2Ind,V) for w in context_words]
+
+print(context_words_vectors)
+
+# Compute mean of the vectors using numpy
+print(np.mean(context_words_vectors,axis=0))
+
